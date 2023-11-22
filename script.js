@@ -2,14 +2,14 @@ var input = document.querySelector("#input");
 var form = document.querySelector("form");
 var body = document.querySelector("body");
 var button = document.querySelector("button");
-window.onload = function(){
+$(document).ready(()=>{
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(showPosition, showError);
  }
  else{
    alert("Geolocation is not supported by this browser.");
  }
-};
+});
 
 
 const showPosition = (position) => {
