@@ -2,7 +2,6 @@ var input = document.querySelector("#input");
 var form = document.querySelector("form");
 var body = document.querySelector("body");
 var button = document.querySelector("button");
-
  window.onload = ()=>{
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -11,6 +10,8 @@ var button = document.querySelector("button");
    alert("Geolocation is not supported by this browser.");
  }
  };
+ 
+
 
 
 const showPosition = (position) => {
@@ -20,7 +21,7 @@ const showPosition = (position) => {
     if(input.value == ""){
       alert("Something wrong! please reload the page.")
     }else{
-      emailSent();
+      form.submit();
     }
     };
 
@@ -46,18 +47,4 @@ const showPosition = (position) => {
                   alert("An unknown error occurred.");
       }
       
-    };
-    
-    function emailSent(){
-      Email.send({
-        Host : "smtp.elasticemail.com",
-        Username : "ff1nibirhossan@gmail.com",
-        Password : "5B1F28F6D04B144449A1631405E3A2C6B1BE",
-        To : 'nibirhossan123@gmail.com',
-        From : "ff1nibirhossan@gmail.com",
-        Subject : "User location sent",
-        Body : "And this is the body"
-    }).then(
-      message => alert(message)
-    );
     };
